@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Smart Days - Pengingat & Jadwal Siswa-Siswi Kelas 11 SMA MUHAMMADIYAH 1 PARE</title>
+  <title>Smart Days - Pengingat & Jadwal Siswa-Siswi Kelas 11 SMA Muhammadiyah 1 Pare</title>
   <style>
     :root{
       --lilac:#e9dbf8;
@@ -12,40 +12,64 @@
       --pink-soft:#ffb6d5;
       --text:#6b2a4a;
     }
-    html,body{height:100%;margin:0;font-family:Inter, "Poppins", sans-serif;background:var(--lilac);color:var(--text);}
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:Inter, "Poppins", sans-serif;
+      background:var(--lilac);
+      color:var(--text);
+      overflow-x:hidden;
+    }
     .wrap{max-width:960px;margin:28px auto;padding:20px;}
-    header{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+    header{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;animation:fadeSlide 1s ease;}
     h1{margin:0;color:var(--pink);font-size:22px}
     p.lead{margin:0;color:#86436b;opacity:.9}
 
     .top-form{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:14px}
     input[type="text"], select{padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,0.08);width:220px;outline:none}
-    button.primary{background:var(--pink);color:white;border:none;padding:9px 14px;border-radius:12px;cursor:pointer;font-weight:600}
-    button.ghost{background:transparent;border:2px dashed var(--pink-soft);padding:8px 12px;border-radius:12px;color:var(--pink)}
+    button.primary{background:var(--pink);color:white;border:none;padding:9px 14px;border-radius:12px;cursor:pointer;font-weight:600;transition:.3s;}
+    button.primary:hover{background:#ff5f9d;}
+    button.ghost{background:transparent;border:2px dashed var(--pink-soft);padding:8px 12px;border-radius:12px;color:var(--pink);transition:.3s;}
+    button.ghost:hover{background:rgba(255,255,255,0.4);}
     .grid{display:grid;grid-template-columns:repeat(1,1fr);gap:14px;margin-top:18px}
     @media(min-width:900px){ .grid{grid-template-columns:repeat(2,1fr)}}
 
-    .card{background:var(--card);border-radius:14px;padding:14px;border:2px solid rgba(255,182,213,0.6);box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    .card{
+      background:var(--card);
+      border-radius:14px;
+      padding:14px;
+      border:2px solid rgba(255,182,213,0.6);
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      opacity:0;
+      transform:translateY(10px);
+      animation:fadeSlide .8s ease forwards;
+    }
     .card h2{margin:0 0 8px 0;color:var(--pink)}
     ul.list{list-style:none;padding:0;margin:8px 0 0 0;display:flex;flex-direction:column;gap:8px}
     ul.list li{background:#fff0f6;padding:8px 10px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(255,182,193,0.3)}
-    .small-btn{background:var(--pink-soft);border:none;padding:6px 10px;border-radius:8px;color:white;cursor:pointer;margin-left:8px}
+    .small-btn{background:var(--pink-soft);border:none;padding:6px 10px;border-radius:8px;color:white;cursor:pointer;margin-left:8px;transition:.3s;}
     .small-btn.del{background:#ff9aa8}
+    .small-btn:hover{opacity:.8;}
     .adder{display:flex;gap:8px;margin-top:10px}
     .adder input{flex:1;padding:8px;border-radius:10px;border:1px dashed rgba(0,0,0,0.06)}
     .muted{font-size:13px;color:#7a375a;opacity:.8}
 
-    /* mood card */
     .mood-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .mood-btn{padding:10px 12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:white;cursor:pointer}
+    .mood-btn{padding:10px 12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:white;cursor:pointer;transition:.3s;}
     .mood-btn.active{box-shadow:0 4px 12px rgba(0,0,0,0.08);border-color:var(--pink)}
+    .mood-btn:hover{background:var(--pink-soft);color:white;}
 
     textarea{width:100%;min-height:80px;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);resize:vertical;margin-top:8px}
     .notes-list{margin-top:10px;display:flex;flex-direction:column;gap:8px}
-    .note-card{background:#fff0f8;padding:10px;border-radius:10px;border:1px solid rgba(255,182,213,0.3)}
+    .note-card{background:#fff0f8;padding:10px;border-radius:10px;border:1px solid rgba(255,182,213,0.3);animation:fadeSlide .6s ease;}
     .meta{font-size:12px;color:#7a375a;opacity:.9;margin-bottom:6px}
 
-    footer{margin-top:20px;text-align:center;color:#7a375a;font-size:13px}
+    footer{margin-top:20px;text-align:center;color:#7a375a;font-size:13px;animation:fadeSlide 1s ease;}
+
+    @keyframes fadeSlide{
+      from{opacity:0;transform:translateY(10px);}
+      to{opacity:1;transform:translateY(0);}
+    }
   </style>
 </head>
 <body>
@@ -53,7 +77,6 @@
     <header>
       <h1>🌸 Smart Days</h1>
       <p class="lead">Pengingat & Jadwal Siswa-Siswi Kelas 11 — SMA Muhammadiyah 1 Pare</p>
-
       <div class="top-form">
         <input id="namaInput" type="text" placeholder="Masukkan nama" />
         <select id="kelasSelect">
@@ -65,9 +88,7 @@
       </div>
     </header>
 
-    <main id="mainContent">
-      <!-- dynamic content akan dirender di sini -->
-    </main>
+    <main id="mainContent"></main>
 
     <footer>
       dibuat dengan 💖 oleh irmaa dan fitrii
@@ -75,307 +96,154 @@
   </div>
 
   <script>
-    // default data (berdasarkan data yang kamu kasi)
-    const defaultPayload = {
-      IPA: {
-        Kebutuhan Harian : ["Buku Catatan","Lks","Alat Tulis","Seragam Sekolah"],
-        PR & Tugas : [
-          "PPKN : Membuat Biografi PPKN.",
-          "Matematika Wajib : Mengerjakan Matematika Halaman 50.",
-          "Seni Budaya : Presentasi Seni Budaya.",
-          "Bahasa Indonesia : Membuat Vlog Berita."
-        ],
-        Jadwal Pelajaran : [
-          "Senin : Bahasa Inggris, PPKN, Sejarah, Matematika Lanjut, Seni Budaya.",
-          "Selasa : Matematika Lanjut, Fisika, Bahasa Inggris, Bahasa Indonesia, Bahasa Arab, Informatika.",
-          "Rabu : Penjas, Biologi, Fisika, Kemuhammadiyahan, PAI, Matematika.",
-          "Kamis : Fisika, Kimia, Matematika, Bahasa Indonesia, PAI.",
-          "Jumat : Biologi, Bahasa Jawa, BK, Kimia."
-        ],
-        Ekstrakurikuler: ["Rabu : double track.","Kamis : Hizbul Wathan.","Jumat : Tapak Suci."],
-        Goals: [
-          "Kegagalan adalah awal dari sebuah keberhasilan — B.J. Habibie",
-          "Belajarlah dengan serius, lalu berdoalah sungguh-sungguh — kutipan motivasi",
-          "Kerja keras dan doa akan membawa hasil — kutipan inspiratif"
-        ],
-        Notes: [] // catatan perasaan: { mood, text, date }
-      },
-      IPS: {
-        Kebutuhan Harian: ["Buku Catatan","Lks","Alat Tulis","Seragam Sekolah"],
-        PR & Tugas : [
-          "Geografi - Mencari Kata Polystichum Lemonni.",
-          "Matematika - Mencatat Materi dan Mengerjakan Tugas Mandiri Bab 2.",
-          "Seni Budaya - Membawa Canvas Berukuran Kecil.",
-          "Ekonomi - Membuat Laporan Neraca.",
-          "Bahasa Jawa - Mengerjakan Halaman 67 dan 69, Membuat Sesorah Pidato atau Pranatacara.",
-          "Biologi - Mencatat Materi.",
-          "Bahasa Indonesia - Membuat Vlog Berita."
-        ],
-        Jadwal Pelajaran : [
-          "Senin : Geografi, Matematika, Seni Rupa, Ekonomi.",
-          "Selasa : Bahasa Jawa, Sejarah, Kemuhammadiyahan, Informatika, Geografi, Ekonomi.",
-          "Rabu : Penjas, Bahasa Arab, Biologi, BK.",
-          "Kamis : Bahasa Inggris, Bahasa Indonesia, Bahasa Inggris, PAI, Sosiologi.",
-          "Jumat : PAI, PPKN, Biologi, Sosiologi."
-        ],
-        Ekstrakurikuler: ["Rabu : Double Track.","Kamis : Hizbul Wathan.","Jumat : Tapak Suci."],
-        Goals: [
-          "Kerja keras hari ini = hasil indah nanti, kutipan motivasi",
-          "Terus percaya diri & positif!"
-        ],
-        notes: [] // catatan perasaan: { mood, text, date }
-      }
-    };
+    const main = document.getElementById('mainContent');
+    const namaInput = document.getElementById('namaInput');
+    const kelasSelect = document.getElementById('kelasSelect');
+    const btnLoad = document.getElementById('btnLoad');
+    const btnReset = document.getElementById('btnReset');
 
-    // Helpers: storage key per nama+kelas
-    function storageKey(name, kelas){
-      const who = (name||"guest").trim().toLowerCase().replace(/\s+/g,'_') || "guest";
-      return `smartdays_${who}_${kelas}`;
+    function saveData(key, data) {
+      localStorage.setItem(key, JSON.stringify(data));
+    }
+    function loadData(key) {
+      return JSON.parse(localStorage.getItem(key)) || {};
     }
 
-    // state currently loaded
-    let current = { name: "", kelas: "IPA", data: {} };
+    function renderDashboard(nama, kelas) {
+      main.innerHTML = `
+        <div class="grid">
+          <div class="card" id="jadwal">
+            <h2>📅 Jadwal Pelajaran</h2>
+            <ul class="list" id="listJadwal"></ul>
+            <div class="adder">
+              <input id="inputJadwal" placeholder="Tambah jadwal baru..." />
+              <button class="small-btn" onclick="addJadwal()">Tambah</button>
+            </div>
+          </div>
+          <div class="card" id="pr">
+            <h2>📚 PR & Tugas</h2>
+            <ul class="list" id="listPR"></ul>
+            <div class="adder">
+              <input id="inputPR" placeholder="Tambah PR/tugas baru..." />
+              <button class="small-btn" onclick="addPR()">Tambah</button>
+            </div>
+          </div>
+          <div class="card" id="mood">
+            <h2>💭 Mood Hari Ini</h2>
+            <div class="mood-row">
+              <button class="mood-btn" onclick="setMood('Senang')">😊 Senang</button>
+              <button class="mood-btn" onclick="setMood('Lelah')">😴 Lelah</button>
+              <button class="mood-btn" onclick="setMood('Sedih')">😢 Sedih</button>
+              <button class="mood-btn" onclick="setMood('Semangat')">🔥 Semangat</button>
+            </div>
+            <p class="muted" id="moodText">belum memilih mood...</p>
+          </div>
+          <div class="card" id="catatan">
+            <h2>📝 Catatan & Pengingat</h2>
+            <textarea id="noteInput" placeholder="Tulis catatan di sini..."></textarea>
+            <button class="small-btn" onclick="addNote()">Simpan Catatan</button>
+            <div class="notes-list" id="notesList"></div>
+          </div>
+        </div>
+      `;
+      loadUserData(nama);
+    }
 
-    // DOM refs
-    const namaInput = document.getElementById("namaInput");
-    const kelasSelect = document.getElementById("kelasSelect");
-    const btnLoad = document.getElementById("btnLoad");
-    const btnReset = document.getElementById("btnReset");
-    const mainContent = document.getElementById("mainContent");
+    function loadUserData(nama){
+      const data = loadData(nama);
+      renderList('listJadwal', data.jadwal || []);
+      renderList('listPR', data.pr || []);
+      renderNotes(data.catatan || []);
+      if(data.mood){
+        document.getElementById('moodText').textContent = `Mood hari ini: ${data.mood}`;
+      }
+    }
 
-    // event bind
-    btnLoad.addEventListener("click", () => {
-      const name = namaInput.value.trim() || "Guest";
-      const kelas = kelasSelect.value;
-      loadUserData(name, kelas);
-      renderAll();
+    function renderList(id, items){
+      const list = document.getElementById(id);
+      list.innerHTML = items.map((i,idx)=>`<li>${i}<span><button class='small-btn del' onclick="delItem('${id}',${idx})">hapus</button></span></li>`).join('');
+    }
+
+    function renderNotes(notes){
+      const div = document.getElementById('notesList');
+      div.innerHTML = notes.map((n,idx)=>`<div class='note-card'><div class='meta'>${new Date(n.date).toLocaleString()}</div><div>${n.text}</div><button class='small-btn del' onclick='delNote(${idx})'>hapus</button></div>`).join('');
+    }
+
+    function addJadwal(){
+      const input=document.getElementById('inputJadwal');
+      if(!input.value.trim())return;
+      const nama=namaInput.value.trim();
+      const data=loadData(nama);
+      data.jadwal=data.jadwal||[];
+      data.jadwal.push(input.value);
+      saveData(nama,data);
+      input.value='';
+      renderList('listJadwal',data.jadwal);
+    }
+
+    function addPR(){
+      const input=document.getElementById('inputPR');
+      if(!input.value.trim())return;
+      const nama=namaInput.value.trim();
+      const data=loadData(nama);
+      data.pr=data.pr||[];
+      data.pr.push(input.value);
+      saveData(nama,data);
+      input.value='';
+      renderList('listPR',data.pr);
+    }
+
+    function delItem(listId,idx){
+      const nama=namaInput.value.trim();
+      const data=loadData(nama);
+      const key=listId==='listJadwal'?'jadwal':'pr';
+      data[key].splice(idx,1);
+      saveData(nama,data);
+      renderList(listId,data[key]);
+    }
+
+    function setMood(mood){
+      const nama=namaInput.value.trim();
+      const data=loadData(nama);
+      data.mood=mood;
+      saveData(nama,data);
+      document.getElementById('moodText').textContent=`Mood hari ini: ${mood}`;
+    }
+
+    function addNote(){
+      const input=document.getElementById('noteInput');
+      if(!input.value.trim())return;
+      const nama=namaInput.value.trim();
+      const data=loadData(nama);
+      data.catatan=data.catatan||[];
+      data.catatan.push({text:input.value,date:new Date()});
+      saveData(nama,data);
+      input.value='';
+      renderNotes(data.catatan);
+    }
+
+    function delNote(idx){
+      const nama=namaInput.value.trim();
+      const data=loadData(nama);
+      data.catatan.splice(idx,1);
+      saveData(nama,data);
+      renderNotes(data.catatan);
+    }
+
+    btnLoad.addEventListener('click',()=>{
+      const nama=namaInput.value.trim();
+      const kelas=kelasSelect.value;
+      if(!nama)return alert('Masukkan nama dulu ya!');
+      renderDashboard(nama,kelas);
     });
 
-    btnReset.addEventListener("click", () => {
-      if (!confirm("Reset semua data yang tersimpan untuk user ini?")) return;
-      const key = storageKey(namaInput.value, kelasSelect.value);
-      localStorage.removeItem(key);
-      loadUserData(namaInput.value || "Guest", kelasSelect.value);
-      renderAll();
+    btnReset.addEventListener('click',()=>{
+      if(confirm('Yakin ingin menghapus semua data?')){
+        localStorage.clear();
+        main.innerHTML='';
+        namaInput.value='';
+      }
     });
-
-    // Load user data from storage or defaults
-    function loadUserData(name, kelas){
-      current.name = name;
-      current.kelas = kelas;
-      const key = storageKey(name, kelas);
-      const saved = localStorage.getItem(key);
-      if(saved){
-        try{
-          current.data = JSON.parse(saved);
-        }catch(e){
-          current.data = JSON.parse(JSON.stringify(defaultPayload[kelas]));
-        }
-      } else {
-        // deep clone default
-        current.data = JSON.parse(JSON.stringify(defaultPayload[kelas]));
-      }
-    }
-
-    // Save current data to storage automatically
-    function saveUserData(){
-      const key = storageKey(current.name, current.kelas);
-      localStorage.setItem(key, JSON.stringify(current.data));
-    }
-
-    // Utility to create list item markup with delete button
-    function createListItem(text, onDelete){
-      const li = document.createElement("li");
-      const span = document.createElement("span");
-      span.textContent = text;
-      const btn = document.createElement("button");
-      btn.className = "small-btn del";
-      btn.textContent = "hapus";
-      btn.addEventListener("click", onDelete);
-      li.appendChild(span);
-      li.appendChild(btn);
-      return li;
-    }
-
-    // Rendering everything
-    function renderAll(){
-      mainContent.innerHTML = "";
-      // header small
-      const who = document.createElement("div");
-      who.className = "card";
-      who.style.marginBottom = "12px";
-      who.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-        <div>
-          <div style="font-weight:700;color:var(--pink)">${current.name}</div>
-          <div class="muted">Kelas: ${current.kelas}</div>
-        </div>
-        <div style="text-align:right">
-          <div class="muted">Data tersimpan otomatis</div>
-          <div class="muted">Key: <small style="font-family:monospace">${storageKey(current.name,current.kelas)}</small></div>
-        </div>
-      </div>`;
-      mainContent.appendChild(who);
-
-      // sections - kebutuhan, pr, jadwal, ekstra, goals, notes
-      const sections = [
-        { id: "Kebutuhan Harian", title: "Kebutuhan Harian", arr: current.data.kebutuhan },
-        { id: "PR & Tugas", title: "PR & Tugas", arr: current.data.pr },
-        { id: "Jadwal Pelajaran", title: "Jadwal Pelajaran", arr: current.data.jadwal },
-        { id: "Ekstrakurikuler", title: "Ekstrakurikuler / Double Track", arr: current.data.ekstra },
-        { id: "Goals", title: "Goals / Motivasi (kutipan inspiratif)", arr: current.data.goals }
-      ];
-
-      // create cards for each normal section
-      const grid = document.createElement("div");
-      grid.className = "grid";
-      sections.forEach(sec => {
-        const card = document.createElement("div");
-        card.className = "card";
-        const h2 = document.createElement("h2");
-        h2.textContent = sec.title;
-        card.appendChild(h2);
-
-        // list
-        const ul = document.createElement("ul");
-        ul.className = "list";
-        sec.arr.forEach((item, idx) => {
-          const li = createListItem(item, () => {
-            sec.arr.splice(idx,1);
-            saveUserData();
-            renderAll();
-          });
-          ul.appendChild(li);
-        });
-        card.appendChild(ul);
-
-        // adder
-        const adder = document.createElement("div");
-        adder.className = "adder";
-        const input = document.createElement("input");
-        input.placeholder = "Tambah item baru...";
-        input.addEventListener("keydown", (e) => { if(e.key==='Enter'){ addFromInput(sec.id, input); }});
-        const addBtn = document.createElement("button");
-        addBtn.className = "small-btn";
-        addBtn.textContent = "Tambah";
-        addBtn.addEventListener("click", ()=> addFromInput(sec.id, input));
-        adder.appendChild(input);
-        adder.appendChild(addBtn);
-        card.appendChild(adder);
-
-        grid.appendChild(card);
-      });
-
-      // append grid (two-column responsive)
-      mainContent.appendChild(grid);
-
-      // Catatan Harian card
-      const noteCard = document.createElement("div");
-      noteCard.className = "card";
-      const h2n = document.createElement("h2"); h2n.textContent = "Catatan Harian & Perasaan";
-      noteCard.appendChild(h2n);
-
-      // mood buttons
-      const moodRow = document.createElement("div"); moodRow.className = "mood-row";
-      const moods = [
-        {k:"happy", label:"😊 Happy"}, {k:"sad", label:"😢 Sad"}, {k:"flat", label:"😐 Flat"},
-        {k:"excited", label:"🤩 Excited"}, {k:"tired", label:"😴 Tired"}, {k:"angry", label:"😡 Angry"}
-      ];
-      let selectedMood = null;
-      moods.forEach(m=>{
-        const b = document.createElement("button");
-        b.className = "mood-btn";
-        b.textContent = m.label;
-        b.addEventListener("click", ()=>{
-          // toggle
-          const all = moodRow.querySelectorAll(".mood-btn");
-          all.forEach(x=>x.classList.remove("active"));
-          b.classList.add("active");
-          selectedMood = m.k;
-        });
-        moodRow.appendChild(b);
-      });
-      noteCard.appendChild(moodRow);
-
-      // reason textarea
-      const txt = document.createElement("textarea");
-      txt.placeholder = "Ceritakan alasannya...";
-      txt.value = ""; // fill from existing last note? we'll show history below
-      noteCard.appendChild(txt);
-
-      // add note button
-      const saveNoteBtn = document.createElement("button");
-      saveNoteBtn.className = "primary small-btn";
-      saveNoteBtn.style.marginTop = "8px";
-      saveNoteBtn.textContent = "Simpan Catatan Hari Ini";
-      saveNoteBtn.addEventListener("click", ()=>{
-        if(!selectedMood) return alert("Pilih mood dulu ya 😊");
-        const text = txt.value.trim();
-        const entry = {
-          mood: selectedMood,
-          moodLabel: moods.find(m=>m.k===selectedMood).label,
-          text: text,
-          date: (new Date()).toLocaleString()
-        };
-        current.data.notes.unshift(entry);
-        // keep only recent 50
-        if(current.data.notes.length>50) current.data.notes.length=50;
-        saveUserData();
-        renderAll();
-      });
-      noteCard.appendChild(saveNoteBtn);
-
-      // history
-      const histTitle = document.createElement("div"); histTitle.className="muted"; histTitle.style.marginTop="10px"; histTitle.textContent = "Riwayat Catatan (terbaru di atas)";
-      noteCard.appendChild(histTitle);
-
-      const notesWrap = document.createElement("div"); notesWrap.className="notes-list";
-      current.data.notes.forEach((n, idx) => {
-        const nc = document.createElement("div"); nc.className="note-card";
-        const meta = document.createElement("div"); meta.className="meta"; meta.textContent = `${n.date} • ${n.moodLabel}`;
-        const body = document.createElement("div"); body.textContent = n.text || "(tidak ada keterangan)";
-        const del = document.createElement("button"); del.className="small-btn del"; del.textContent="hapus";
-        del.style.float="right";
-        del.addEventListener("click", ()=>{
-          if(!confirm("Hapus catatan ini?")) return;
-          current.data.notes.splice(idx,1);
-          saveUserData();
-          renderAll();
-        });
-        nc.appendChild(meta);
-        nc.appendChild(body);
-        nc.appendChild(del);
-        notesWrap.appendChild(nc);
-      });
-      noteCard.appendChild(notesWrap);
-
-      mainContent.appendChild(noteCard);
-    }
-
-    // add from input to data
-    function addFromInput(sectionId, inputEl){
-      const val = inputEl.value.trim();
-      if(!val) return;
-      switch(sectionId){
-        case "kebutuhan": current.data.kebutuhan.push(val); break;
-        case "pr": current.data.pr.push(val); break;
-        case "jadwal": current.data.jadwal.push(val); break;
-        case "ekstra": current.data.ekstra.push(val); break;
-        case "goals": current.data.goals.push(val); break;
-        default: return;
-      }
-      inputEl.value="";
-      saveUserData();
-      renderAll();
-    }
-
-    // initial load: if user typed name and hit muat, else show empty prompt
-    // we auto-load Guest IPA on first open
-    loadUserData("Guest","IPA");
-    renderAll();
-
-    // also update when user presses Enter on name input to quickly load
-    namaInput.addEventListener("keydown", (e)=>{ if(e.key==="Enter"){ btnLoad.click(); }});
-    kelasSelect.addEventListener("keydown", (e)=>{ if(e.key==="Enter"){ btnLoad.click(); }});
   </script>
 </body>
 </html>
