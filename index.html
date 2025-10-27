@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Smart Days - Pengingat & Jadwal Kelas 11</title>
+  <title>Smart Days - Pengingat & Jadwal Siswa-Siswi Kelas 11 SMA MUHAMMADIYAH 1 PARE</title>
   <style>
     :root{
       --lilac:#e9dbf8;
@@ -70,7 +70,7 @@
     </main>
 
     <footer>
-      dibuat dengan 💖 oleh irmaa — tema: lilac & pink muda
+      dibuat dengan 💖 oleh irmaa dan fitrii
     </footer>
   </div>
 
@@ -78,52 +78,52 @@
     // default data (berdasarkan data yang kamu kasi)
     const defaultPayload = {
       IPA: {
-        kebutuhan: ["buku catatan","lks","alat tulis","seragam sekolah"],
-        pr: [
-          "PPKN : membuat biografi ppkn.",
-          "Matematika Wajib : mengerjakan mm halaman 50.",
-          "Seni Budaya : presentasi seni budaya.",
-          "Bahasa Indonesia : membuat vlog berita."
+        Kebutuhan Harian : ["Buku Catatan","Lks","Alat Tulis","Seragam Sekolah"],
+        PR & Tugas : [
+          "PPKN : Membuat Biografi PPKN.",
+          "Matematika Wajib : Mengerjakan Matematika Halaman 50.",
+          "Seni Budaya : Presentasi Seni Budaya.",
+          "Bahasa Indonesia : Membuat Vlog Berita."
         ],
-        jadwal: [
-          "Senin : b inggris, ppkn, sejarah, mtk lanjut, seni rupa.",
-          "Selasa : mtk lanjut, fisika, b inggris, b indo, b arab, informatika.",
-          "Rabu : penjas, biologi, fisika, kemuhammadiyahan, pai, matematika.",
-          "Kamis : fisika, kimia, matematika, b indo, pai.",
-          "Jumat : biologi, b jawa, bk, kimia."
+        Jadwal Pelajaran : [
+          "Senin : Bahasa Inggris, PPKN, Sejarah, Matematika Lanjut, Seni Budaya.",
+          "Selasa : Matematika Lanjut, Fisika, Bahasa Inggris, Bahasa Indonesia, Bahasa Arab, Informatika.",
+          "Rabu : Penjas, Biologi, Fisika, Kemuhammadiyahan, PAI, Matematika.",
+          "Kamis : Fisika, Kimia, Matematika, Bahasa Indonesia, PAI.",
+          "Jumat : Biologi, Bahasa Jawa, BK, Kimia."
         ],
-        ekstra: ["Rabu : double track.","Kamis : Hizbul Wathan.","Jumat : Tapak Suci."],
-        goals: [
+        Ekstrakurikuler: ["Rabu : double track.","Kamis : Hizbul Wathan.","Jumat : Tapak Suci."],
+        Goals: [
           "Kegagalan adalah awal dari sebuah keberhasilan — B.J. Habibie",
           "Belajarlah dengan serius, lalu berdoalah sungguh-sungguh — kutipan motivasi",
           "Kerja keras dan doa akan membawa hasil — kutipan inspiratif"
         ],
-        notes: [] // catatan perasaan: { mood, text, date }
+        Notes: [] // catatan perasaan: { mood, text, date }
       },
       IPS: {
-        kebutuhan: ["buku tulis","lks","alat tulis","seragam sekolah"],
-        pr: [
-          "geografi - mencari kata polystichum Lemonni.",
-          "Matematika - mencatat materi dan mengerjakan tugas mandiri bab 2.",
-          "Seni budaya - membawa canvas berukuran kecil.",
-          "ekonomi - membuat laporan neraca.",
-          "B. Jawa - mengerjakan hal 67 dan 69, membuat sesorah pidato atau pranatacara.",
-          "biologi - mencatat materi.",
-          "bahasa Indonesia - membuat vlog berita."
+        Kebutuhan Harian: ["Buku Catatan","Lks","Alat Tulis","Seragam Sekolah"],
+        PR & Tugas : [
+          "Geografi - Mencari Kata Polystichum Lemonni.",
+          "Matematika - Mencatat Materi dan Mengerjakan Tugas Mandiri Bab 2.",
+          "Seni Budaya - Membawa Canvas Berukuran Kecil.",
+          "Ekonomi - Membuat Laporan Neraca.",
+          "Bahasa Jawa - Mengerjakan Halaman 67 dan 69, Membuat Sesorah Pidato atau Pranatacara.",
+          "Biologi - Mencatat Materi.",
+          "Bahasa Indonesia - Membuat Vlog Berita."
         ],
-        jadwal: [
-          "Senin : geografi, mtk, seni budaya, ekonomi.",
-          "Selasa : b jawa, sejarah, kemuhammadiyahan, informatika, geografi, ekonomi.",
-          "Rabu : penjas, b arab, biologi, bk.",
-          "Kamis : b inggris, b indo, b inggris, pai, sosiologi.",
-          "Jumat : pai, ppkn, biologi, sosiologi."
+        Jadwal Pelajaran : [
+          "Senin : Geografi, Matematika, Seni Rupa, Ekonomi.",
+          "Selasa : Bahasa Jawa, Sejarah, Kemuhammadiyahan, Informatika, Geografi, Ekonomi.",
+          "Rabu : Penjas, Bahasa Arab, Biologi, BK.",
+          "Kamis : Bahasa Inggris, Bahasa Indonesia, Bahasa Inggris, PAI, Sosiologi.",
+          "Jumat : PAI, PPKN, Biologi, Sosiologi."
         ],
-        ekstra: ["Rabu : double track.","Kamis : Hizbul Wathan.","Jumat : Tapak Suci."],
-        goals: [
-          "Kerja keras hari ini = hasil indah nanti — kutipan motivasi",
+        Ekstrakurikuler: ["Rabu : Double Track.","Kamis : Hizbul Wathan.","Jumat : Tapak Suci."],
+        Goals: [
+          "Kerja keras hari ini = hasil indah nanti, kutipan motivasi",
           "Terus percaya diri & positif!"
         ],
-        notes: []
+        notes: [] // catatan perasaan: { mood, text, date }
       }
     };
 
@@ -218,11 +218,11 @@
 
       // sections - kebutuhan, pr, jadwal, ekstra, goals, notes
       const sections = [
-        { id: "kebutuhan", title: "Kebutuhan Harian", arr: current.data.kebutuhan },
-        { id: "pr", title: "PR & Tugas", arr: current.data.pr },
-        { id: "jadwal", title: "Jadwal Pelajaran", arr: current.data.jadwal },
-        { id: "ekstra", title: "Ekstrakurikuler / Double Track", arr: current.data.ekstra },
-        { id: "goals", title: "Goals / Motivasi (kutipan inspiratif)", arr: current.data.goals }
+        { id: "Kebutuhan Harian", title: "Kebutuhan Harian", arr: current.data.kebutuhan },
+        { id: "PR & Tugas", title: "PR & Tugas", arr: current.data.pr },
+        { id: "Jadwal Pelajaran", title: "Jadwal Pelajaran", arr: current.data.jadwal },
+        { id: "Ekstrakurikuler", title: "Ekstrakurikuler / Double Track", arr: current.data.ekstra },
+        { id: "Goals", title: "Goals / Motivasi (kutipan inspiratif)", arr: current.data.goals }
       ];
 
       // create cards for each normal section
